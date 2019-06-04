@@ -18,13 +18,13 @@ public class ProductController {
     public Product getProductbyId(@PathVariable("id") int id){
         Map<String, Object> params = new HashMap<>();
         params.put("id", id);
-        return new RestTemplate().getForObject("http://localhost:9090/product/{id}",Product.class,params);
+        return new RestTemplate().getForObject("http://localhost:8800/product/{id}",Product.class,params);
     }
 
     @GetMapping("/find-product")
     public List<Product> getProduct(){
         List<Product> products = new ArrayList<>();
-        return new RestTemplate().getForObject("http://localhost:9090/product/{id}",products.getClass());
+        return new RestTemplate().getForObject("http://localhost:8800/product",products.getClass());
 
     }
 }
